@@ -1,5 +1,4 @@
-
-# ©2021
+#2021 Python 3.9
 
 """ IMPORT  """
 from tkinter import *
@@ -37,6 +36,8 @@ class Geometry:
         ##--Padding (not really used)--##
         npad = n + 1
         self.pad = pad
+        
+        
         ##--Cell size (x)--##
         xsize = (width - npad*pad) / n
         ##--Cell size (y)--##
@@ -112,8 +113,9 @@ class Geometry:
 
         ##
         
-        """#####   Callback functions for the grid(mainwindow)     #####"""
-        """                                                             """
+        """#############################################################"""
+        """        Callback functions for the grid(mainwindow)          """
+                                                                  
         def color_click_callback(event):
                     x, y = event.x, event.y
 
