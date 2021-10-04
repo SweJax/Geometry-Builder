@@ -1,6 +1,3 @@
-
-# ©2021
-
 """ IMPORT  """
 from tkinter import *
 from tkinter import filedialog
@@ -37,6 +34,8 @@ class Geometry:
         ##--Padding (not really used)--##
         npad = n + 1
         self.pad = pad
+        
+        
         ##--Cell size (x)--##
         xsize = (width - npad*pad) / n
         ##--Cell size (y)--##
@@ -112,8 +111,9 @@ class Geometry:
 
         ##
         
-        """#####   Callback functions for the grid(mainwindow)     #####"""
-        """                                                             """
+        """#############################################################"""
+        """        Callback functions for the grid(mainwindow)          """
+                                                                  
         def color_click_callback(event):
                     x, y = event.x, event.y
 
@@ -154,15 +154,21 @@ class Geometry:
                 if(unfill == 0):
                     c = self.w.itemcget(self.cells[i], 'fill')
                     if c == 'white':
-                        NUMPOINTS = NUMPOINTS + 1
+                        if(self.col_index == 1):
+                            NUMPOINTS = NUMPOINTS + 1
+                        self.set_numpoints()
+                    elif c == 'black':
+                        if(self.col_index == 0):
+                            NUMPOINTS = NUMPOINTS - 1
                         self.set_numpoints()
                     self.w.itemconfig(self.cells[i], fill=self.colours[self.col_index])
+
+
                 elif(unfill == 1):
                     c = self.w.itemcget(self.cells[i], 'fill')
                     if c != 'white':
                         NUMPOINTS = NUMPOINTS - 1
                         self.set_numpoints()
-                        #print(c)
                     self.w.itemconfig(self.cells[i], fill=self.colours[0])
 
         # Callback if user click on a cell
